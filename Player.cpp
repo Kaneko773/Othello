@@ -58,6 +58,7 @@ Action Player::Update(Vector2* aPos, Board* board) {
 		default:break;
 		}
 	}
+
 	//—£‚µ‚½ó‘Ô‚©‚çƒ{ƒ^ƒ“‚ğ‰‚ß‚Ä‰Ÿ‚µ‚½
 	if (m_prevInputState == NotPressed) {
 		if (m_inputState != NotPressed && m_inputState != PressReturn) {

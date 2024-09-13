@@ -23,10 +23,10 @@ public:
 	Vector2 Get_m_pieces_pos(int x, int y) const {
 		return m_pieces[y][x].pos;
 	}
-	int Get_m_WhitePieceNum() {
+	int Get_m_WhitePieceNum() const {
 		return m_WhitePieceNum;
 	}
-	int Get_m_BlackPieceNum() {
+	int Get_m_BlackPieceNum() const {
 		return m_BlackPieceNum;
 	}
 

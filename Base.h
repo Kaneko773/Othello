@@ -26,10 +26,10 @@ public:
 	bool TurnOver(Vector2 aPos, Board* board) const;
 	bool PutGudge(Vector2 searchPos, Board* board) const;
 
-	bool Get_m_turn() {
+	bool Get_m_turn() const {
 		return m_turn;
 	}
-	Name Get_m_name() {
+	Name Get_m_name() const {
 		return m_name;
 	}
 

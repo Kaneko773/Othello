@@ -60,14 +60,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	};
 	MessageManager message = { 0, 0, false, 0 };
 
-	int centerFontSize;
-
-
 	bool turn = 1;//黒が１、白が０(先手は黒)
 	SetFontSize(30);//画面上部の文字のサイズ
-	centerFontSize = CreateFontToHandle(NULL, 50, 1);//画面中央に表示する用のフォント情報
+	int centerFontSize = CreateFontToHandle(NULL, 50, 1);//画面中央に表示する用のフォント情報
 	bool gameEnd = false;//ゲーム終了用のフラグ
 	LONGLONG resultStartTime = 0;//結果表示の開始時間
+
+	int arrowSize = 20;//矢印のサイズ
+	Vector2 arrowPos = { 4, 3 };//矢印の場所
 
 	//盤の初期化
 	Board board;
@@ -86,10 +86,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	else {
 		message.Set(0, 1);
 	}
-
-	int arrowSize = 20;//矢印のサイズ
-	Vector2 arrowPos = { 4, 3 };//矢印の場所
 		
+	//以下メインゲームのループ
 	while (ProcessMessage() == 0) {
 		ClearDrawScreen();//画面クリア
 

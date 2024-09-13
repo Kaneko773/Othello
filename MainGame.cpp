@@ -200,7 +200,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			}
 		}
 
-		//デバッグ
+		//いつでも終了できる
 		if (CheckHitKey(KEY_INPUT_ESCAPE)) {
 			break;
 		}

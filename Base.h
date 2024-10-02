@@ -24,7 +24,7 @@ public:
 	virtual Action Update(Vector2* aPos, Board* board) = 0;
 
 	bool TurnOver(Vector2 aPos, Board* board) const;
-	bool PutGudge(Vector2 searchPos, Board* board) const;
+	bool PutGudge(Vector2 searchPos, Board* board, bool turn) const;
 
 	bool Get_m_turn() const {
 		return m_turn;

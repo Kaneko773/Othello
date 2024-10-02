@@ -55,11 +55,11 @@ bool Base::TurnOver(Vector2 aPos, Board* board) const {
 }
 
 //置けるか判定
-bool Base::PutGudge(Vector2 searchPos, Board* board) const {
+bool Base::PutGudge(Vector2 searchPos, Board* board, bool turn) const {
 	if (board->Get_m_pieces_pState(searchPos.x, searchPos.y) != non)return false;//既に駒が置かれていたら終了
 
-	PlaceState turnColor = m_turn ? black : white;
-	PlaceState otherColor = m_turn ? white : black;
+	PlaceState turnColor = turn ? black : white;
+	PlaceState otherColor = turn ? white : black;
 
 	Vector2 dir[8] = {
 			{1, 0},//右

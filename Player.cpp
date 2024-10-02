@@ -20,7 +20,7 @@ Action Player::Update(Vector2* aPos, Board* board) {
 			for (int x = 0; x < 8 && skip; ++x) {
 				//’u‚¯‚éêŠ‚ª‚P‚Â‚Å‚à‚ ‚Á‚½‚ç’²‚×‚é‚Ì‚ðI—¹
 				Vector2 temp = { x, y };
-				if (PutGudge(temp, board)) {
+				if (PutGudge(temp, board, Get_m_turn())) {
 					skip = false;
 				}
 			}

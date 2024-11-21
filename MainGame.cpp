@@ -54,7 +54,6 @@ struct MessageManager
 };
 
 void Menu(Menu_Select menu_select);
-void Show();
 
 void MainGame(int level, GameState& gameState) {
 	MessageManager message = { 0, 0, false, 0 };
@@ -319,8 +318,4 @@ void Menu(Menu_Select menu_select) {
 		DrawTriangle(170, 344, 170, 374, 192, 359, GetColor(255, 255, 0), TRUE);
 		break;
 	}
-}
-
-void Show() {
-
 }

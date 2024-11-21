@@ -53,6 +53,9 @@ struct MessageManager
 	}
 };
 
+void Menu(Menu_Select menu_select);
+void Show();
+
 void MainGame(int level, GameState& gameState) {
 	MessageManager message = { 0, 0, false, 0 };
 
@@ -134,8 +137,9 @@ void MainGame(int level, GameState& gameState) {
 			}
 		}
 
+
 		//<描画>
-		board.Show();
+		board.Show();//盤
 		//ターン
 		if (participants[1]->Get_m_name() == e_Player1) {//playerが黒なら
 			DrawString(59, 14, turn == player.Get_m_turn() ? "Player(○)のターン" : " CPU(●)のターン", GetColor(255, 255, 255));
@@ -199,6 +203,7 @@ void MainGame(int level, GameState& gameState) {
 			}
 		}
 		
+
 		//メニューを開く
 		if (inputState == NotPressed) {
 			if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) {
@@ -221,27 +226,10 @@ void MainGame(int level, GameState& gameState) {
 				}
 			}
 		}
-		//メニュー画面
+		
 		if (menuOrNot) {
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 192);//オセロ画面を半透明にする
-			DrawBox(0, 0, 640, 480, GetColor(0, 0, 0), TRUE);
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
-			DrawString(199, 104, "　ゲームに戻る　", GetColor(255, 255, 255));
-			DrawString(199, 224, "レベル選択へ戻る", GetColor(255, 255, 255));
-			DrawString(199, 344, "ゲームを終了する", GetColor(255, 255, 255));
-			switch (menu_select)
-			{
-			case BackGame:
-				DrawTriangle(170, 104, 170, 134, 192, 119, GetColor(255, 255, 0), TRUE);
-				break;
-			case BackLevelSelect:
-				DrawTriangle(170, 224, 170, 254, 192, 239, GetColor(255, 255, 0), TRUE);
-				break;
-			case GameEnd:
-				DrawTriangle(170, 344, 170, 374, 192, 359, GetColor(255, 255, 0), TRUE);
-				break;
-			}
-			
+			Menu(menu_select);//メニュー画面
+
 			//常に１つのキー入力しか受け付けないようにする
 			if (inputState == NotPressed) {
 				if (CheckHitKey(KEY_INPUT_DOWN) == 1) {
@@ -310,4 +298,29 @@ void MainGame(int level, GameState& gameState) {
 	}
 
 	gameState = e_GameEnd;
+}
+
+void Menu(Menu_Select menu_select) {
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 192);//オセロ画面を半透明にする
+	DrawBox(0, 0, 640, 480, GetColor(0, 0, 0), TRUE);
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+	DrawString(199, 104, "　ゲームに戻る　", GetColor(255, 255, 255));
+	DrawString(199, 224, "レベル選択へ戻る", GetColor(255, 255, 255));
+	DrawString(199, 344, "ゲームを終了する", GetColor(255, 255, 255));
+	switch (menu_select)
+	{
+	case BackGame:
+		DrawTriangle(170, 104, 170, 134, 192, 119, GetColor(255, 255, 0), TRUE);
+		break;
+	case BackLevelSelect:
+		DrawTriangle(170, 224, 170, 254, 192, 239, GetColor(255, 255, 0), TRUE);
+		break;
+	case GameEnd:
+		DrawTriangle(170, 344, 170, 374, 192, 359, GetColor(255, 255, 0), TRUE);
+		break;
+	}
+}
+
+void Show() {
+
 }
